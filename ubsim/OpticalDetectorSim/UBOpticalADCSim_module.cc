@@ -226,11 +226,11 @@ namespace opdet {
     photon_setinsd.push_back(pmt_ptr->at(photon_index).SetInSD);
           photon_energy.push_back(pmt_ptr->at(photon_index).Energy);
           // Marco's Addition
-          double nuTime = 3911.87;
-          if (pmt_ptr->at(photon_index).Time > nuTime + 8000 ) continue;
-          if (pmt_ptr->at(photon_index).Time > nuTime - 100){ 
-            ph_counter += 1;
-          }
+	  //          double nuTime = 3911.87;
+	  // if (pmt_ptr->at(photon_index).Time > nuTime + 8000 ) continue;
+          //if (pmt_ptr->at(photon_index).Time > nuTime - 100){ 
+          //  ph_counter += 1;
+	  // }
           // Marco's Addition Ends
         }
       }
