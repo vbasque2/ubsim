@@ -17,6 +17,7 @@
 // LArSoft
 #include "UBADCBase.h" // uboonecode
 #include "lardataobj/OpticalDetectorData/ChannelData.h" // lardata
+#include "lardata/DetectorInfoServices/LArPropertiesService.h" //Cherenkov add 
 
 namespace opdet {
   /**
@@ -45,6 +46,12 @@ namespace opdet {
     /// Function to set G4 photons in G4 time (ns as that is G4 natural unit)
     void SetPhotons(const std::vector<double>& g4time);
 
+    /// Function to set G4 photons status (true if propagated, false if photon library)  //Cherenkov add 
+    void SetPhotonsStatus(const std::vector<bool>& setinsd_v);  //Cherenkov add 
+
+    /// Function to set G4 photons energy  //Cherenkov add 
+    void SetPhotonsEnergy(const std::vector<float>& energy_v);  //Cherenkov add 
+
     /// Method to generate waveform for a specific channel
     void GenWaveform(const unsigned int pmtid, optdata::ChannelData& adc_wf );
 
@@ -64,6 +71,12 @@ namespace opdet {
 
     /// G4 photon times for signal in G4 clock. Hits in an Optical detector
     std::vector<double> fInputPhotonTime;
+
+    /// G4 photon statuses (true if properly propagated, false if from photon library)  //Cherenkov add 
+    std::vector<bool>   fInputPhotonStatus;  //Cherenkov add 
+    
+    /// G4 photon energies (in MeV)  //Cherenkov add 
+    std::vector<float>  fInputPhotonEnergy;  //Cherenkov add 
 
     /// Dark noise photon time in G4 clock. Hits in an Optical detector
     std::vector<double> fDarkPhotonTime;
